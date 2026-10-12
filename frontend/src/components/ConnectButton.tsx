@@ -24,7 +24,7 @@ export default function ConnectButton() {
 
   if (isConnected) {
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5">
         {!isCorrectNetwork && (
           <div
             className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-display font-semibold"
@@ -36,8 +36,8 @@ export default function ConnectButton() {
           </div>
         )}
         <div
-          className="flex items-center gap-2 px-4 py-2 rounded-lg font-display font-semibold text-sm"
-          style={{ background: '#f5ead7', color: '#1a3c2e', border: '2px solid #1a3c2e' }}
+          className="btn-cartoon flex items-center gap-1.5 px-5 py-2 text-sm font-display font-semibold"
+          style={{ background: '#f5ead7', color: '#1a3c2e', border: '2.5px solid #1a3c2e' }}
         >
           <Wallet size={16} />
           <span>{shortAddress}</span>
@@ -49,8 +49,8 @@ export default function ConnectButton() {
         </div>
         <button
           onClick={() => disconnect()}
-          className="p-2 rounded-lg transition-all hover:opacity-80"
-          style={{ background: '#d94c2a', color: '#fff', border: '2px solid #1a3c2e' }}
+          className="btn-cartoon p-2 rounded-lg transition-all hover:opacity-90"
+          style={{ background: '#d94c2a', color: '#fff', border: '2.5px solid #1a3c2e' }}
           title="Disconnect"
         >
           <LogOut size={16} />
@@ -59,16 +59,17 @@ export default function ConnectButton() {
     );
   }
 
+  
   return (
     <>
       <button
-        onClick={() => setShowModal(true)}
-        className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-display font-semibold text-white transition-all hover:opacity-90"
-        style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
-      >
-        <Wallet size={18} />
-        Connect Wallet
-      </button>
+          onClick={() => setShowModal(true)}
+          className="btn-cartoon flex items-center gap-1.5 px-5 py-2 text-sm text-white"
+          style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
+        >
+          <Wallet size={16} />
+          Connect Wallet
+        </button>
 
       {showModal && (
         <div
