@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Loader2, CheckCircle2, AlertCircle, Wallet } from 'lucide-react';
+import { Loader2, CheckCircle2, AlertCircle, Wallet, AlertTriangle } from 'lucide-react';
+import { useChainId, useSwitchChain } from 'wagmi';
+import { polygonAmoy } from 'wagmi/chains';
 import Modal from './Modal';
 import { useWallet } from '@/hooks/useWallet';
 import { useLandID } from '@/hooks/useLandID';
@@ -19,6 +21,11 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
     registerError,
     resetRegister,
   } = useLandID();
+
+  // Network check
+  const chainId = useChainId();
+  const { switchChain, isPending: isSwitching } = useSwitchChain();
+  const isCorrectNetwork = chainId === polygonAmoy.id;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -57,6 +64,13 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isConnected) return;
+
+    // Kalau network salah, minta switch dulu
+    if (!isCorrectNetwork) {
+      switchChain({ chainId: polygonAmoy.id });
+      return;
+    }
+
     registerNewLand({
       name: formData.name,
       province: formData.province,
@@ -67,7 +81,11 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
     });
   };
 
-  const isLoading = isRegisterPending || isRegisterConfirming;
+  const handleSwitchNetwork = () => {
+    switchChain({ chainId: polygonAmoy.id });
+  };
+
+  const isLoading = isRegisterPending || isRegisterConfirming || isSwitching;
 
   return (
     <Modal
@@ -116,6 +134,39 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
       ) : (
         /* Form */
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Warning: Network Salah */}
+          {!isCorrectNetwork && (
+            <div
+              className="flex items-start gap-3 p-3 rounded-lg"
+              style={{ background: '#fef3c7', border: '2px solid #f59e0b' }}
+            >
+              <AlertTriangle
+                size={20}
+                style={{ color: '#f59e0b', flexShrink: 0, marginTop: 2 }}
+              />
+              <div className="flex-1">
+                <p
+                  className="font-display font-semibold text-sm mb-1"
+                  style={{ color: '#92400e' }}
+                >
+                  Network Salah
+                </p>
+                <p className="font-body text-xs mb-2" style={{ color: '#92400e' }}>
+                  Wallet Anda terhubung ke network lain. Silakan ganti ke Polygon Amoy Testnet.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleSwitchNetwork}
+                  disabled={isSwitching}
+                  className="px-3 py-1.5 rounded-lg font-display font-semibold text-xs text-white disabled:opacity-50"
+                  style={{ background: '#f59e0b', border: '1.5px solid #92400e' }}
+                >
+                  {isSwitching ? 'Beralih Network...' : 'Ganti ke Polygon Amoy'}
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Nama Lahan */}
           <div>
             <label
@@ -269,8 +320,14 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
               {isLoading ? (
                 <>
                   <Loader2 size={16} className="animate-spin" />
-                  {isRegisterPending ? 'Menunggu Wallet...' : 'Memproses...'}
+                  {isSwitching
+                    ? 'Beralih Network...'
+                    : isRegisterPending
+                    ? 'Menunggu Wallet...'
+                    : 'Memproses...'}
                 </>
+              ) : !isCorrectNetwork ? (
+                'Ganti Network Dulu'
               ) : (
                 'Daftarkan Lahan'
               )}
