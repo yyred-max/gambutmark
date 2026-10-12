@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
 import InteractiveExplainer from '@/components/sections/InteractiveExplainer';
-import ComicSection from '@/components/sections/ComicSection';
+import ComicSection from '@/components/sections/ComicSections';
 import TopicCategories from '@/components/sections/TopicCategories';
 import NewsSection from '@/components/sections/NewsSection';
 import RestorationSection from '@/components/sections/RestorationSection';
