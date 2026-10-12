@@ -1,0 +1,21 @@
+{
+    "name": "gambutmark-contracts",
+    "version": "1.0.0",
+    "description": "Smart contracts untuk GambutMark - Transparent Peatland Carbon Marketplace",
+    "scripts": {
+      "compile": "hardhat compile",
+      "test": "hardhat test",
+      "deploy:amoy": "hardhat run scripts/deploy.js --network amoy",
+      "verify:amoy": "hardhat run scripts/verify.js --network amoy",
+      "node": "hardhat node",
+      "clean": "hardhat clean"
+    },
+    "devDependencies": {
+      "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+      "hardhat": "^2.22.10",
+      "dotenv": "^16.4.5"
+    },
+    "dependencies": {
+      "@openzeppelin/contracts": "^5.0.2"
+    }
+  }

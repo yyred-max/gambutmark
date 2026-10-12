@@ -1,0 +1,23 @@
+{
+    "name": "gambutmark",
+    "version": "1.0.0",
+    "description": "Transparent Peatland Carbon Marketplace for Indonesia",
+    "private": true,
+    "scripts": {
+      "contracts:install": "cd contracts && npm install",
+      "contracts:compile": "cd contracts && npm run compile",
+      "contracts:test": "cd contracts && npm run test",
+      "contracts:deploy": "cd contracts && npm run deploy:amoy",
+      "frontend:install": "cd frontend && npm install",
+      "frontend:dev": "cd frontend && npm run dev",
+      "frontend:build": "cd frontend && npm run build"
+    },
+    "keywords": [
+      "carbon-credit",
+      "peatland",
+      "blockchain",
+      "indonesia",
+      "hackathon"
+    ],
+    "license": "MIT"
+  }
