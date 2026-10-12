@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Leaf } from 'lucide-react';
+import ConnectButton from './ConnectButton';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,6 +71,9 @@ export default function Navbar() {
               <Leaf size={16} />
               Beli Kredit
             </a>
+            <div className="ml-2">
+              <ConnectButton />
+            </div>
           </div>
 
           {/* Mobile toggle */}
