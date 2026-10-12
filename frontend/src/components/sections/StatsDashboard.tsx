@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TopicIcon } from '@/components/illustrations/Scenes';
 import { statItems } from '@/data/mockData';
+import { useStats } from '@/hooks/useStats';
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -41,6 +42,7 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function StatsDashboard() {
+  const { totalLands, totalCredits, totalRetired, activeCredits, isLoading } = useStats();
   return (
     <section id="stats" className="relative py-20 px-4" style={{ background: '#1a3c2e' }}>
       {/* Decorative dots */}
@@ -59,10 +61,10 @@ export default function StatsDashboard() {
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
+          {/* Header */}
+          <div className="text-center mb-12">
           <span className="font-display font-semibold text-sm uppercase tracking-wider" style={{ color: '#f5a623' }}>
-Dalam Angka
+            Dalam Angka
           </span>
           <h2 className="font-display font-bold text-3xl md:text-4xl mt-2 mb-3" style={{ color: '#f5ead7' }}>
             Statistik Lahan Gambut
@@ -71,6 +73,76 @@ Dalam Angka
             Skala lahan gambut Indonesia dan mengapa melindunginya penting secara global.
           </p>
         </div>
+
+        {/* === BLOCKCHAIN PLATFORM STATS (NEW) === */}
+        <div className="mb-12">
+          <div className="text-center mb-6">
+            <span className="font-display font-semibold text-sm uppercase tracking-wider" style={{ color: '#6bb077' }}>
+              Live dari Blockchain
+            </span>
+            <h3 className="font-display font-bold text-2xl mt-2" style={{ color: '#f5ead7' }}>
+              Statistik Platform GambutMark
+            </h3>
+            <p className="font-body text-sm mt-1" style={{ color: '#9ccc9a' }}>
+              Data real-time dari Polygon Amoy Testnet
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Total Lands */}
+            <div
+              className="rounded-2xl p-5 text-center border-2.5"
+              style={{ borderColor: '#4a8c5a', background: 'rgba(74, 140, 90, 0.15)' }}
+            >
+              <p className="font-display font-bold text-4xl mb-1" style={{ color: '#f5ead7' }}>
+                {isLoading ? '...' : totalLands}
+              </p>
+              <p className="font-body text-xs uppercase tracking-wider" style={{ color: '#9ccc9a' }}>
+                Lahan Terdaftar
+              </p>
+            </div>
+
+            {/* Total Credits */}
+            <div
+              className="rounded-2xl p-5 text-center border-2.5"
+              style={{ borderColor: '#f5a623', background: 'rgba(245, 166, 35, 0.15)' }}
+            >
+              <p className="font-display font-bold text-4xl mb-1" style={{ color: '#f5ead7' }}>
+                {isLoading ? '...' : totalCredits}
+              </p>
+              <p className="font-body text-xs uppercase tracking-wider" style={{ color: '#9ccc9a' }}>
+                Total Kredit Diterbitkan
+              </p>
+            </div>
+
+            {/* Active Credits */}
+            <div
+              className="rounded-2xl p-5 text-center border-2.5"
+              style={{ borderColor: '#6bb077', background: 'rgba(107, 176, 119, 0.15)' }}
+            >
+              <p className="font-display font-bold text-4xl mb-1" style={{ color: '#f5ead7' }}>
+                {isLoading ? '...' : activeCredits}
+              </p>
+              <p className="font-body text-xs uppercase tracking-wider" style={{ color: '#9ccc9a' }}>
+                Kredit Aktif
+              </p>
+            </div>
+
+            {/* Retired Credits */}
+            <div
+              className="rounded-2xl p-5 text-center border-2.5"
+              style={{ borderColor: '#d94c2a', background: 'rgba(217, 76, 42, 0.15)' }}
+            >
+              <p className="font-display font-bold text-4xl mb-1" style={{ color: '#f5ead7' }}>
+                {isLoading ? '...' : totalRetired}
+              </p>
+              <p className="font-body text-xs uppercase tracking-wider" style={{ color: '#9ccc9a' }}>
+                Kredit Di-Retire
+              </p>
+            </div>
+          </div>
+        </div>
+
 
         {/* Stats grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">

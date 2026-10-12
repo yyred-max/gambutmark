@@ -22,6 +22,7 @@ contracts/coverage.json
 frontend/.next/
 frontend/out/
 frontend/build/
+frontend/dist/
 frontend/.vercel
 
 # === PRODUCTION ===
