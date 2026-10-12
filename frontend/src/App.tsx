@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
 import InteractiveExplainer from '@/components/sections/InteractiveExplainer';
@@ -10,9 +10,12 @@ import MarketplaceSection from '@/components/sections/MarketplaceSection';
 import StatsDashboard from '@/components/sections/StatsDashboard';
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import Footer from '@/components/sections/Footer';
+import RegisterLandModal from '@/components/modals/RegisterLandModal';
 
 function App() {
-  // Scroll reveal — adds .visible to .reveal-on-scroll elements when they enter the viewport
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  // Scroll reveal
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,7 +36,7 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#f5ead7' }}>
-      <Navbar />
+      <Navbar onOpenRegisterModal={() => setIsRegisterModalOpen(true)} />
       <main>
         <Hero />
         <InteractiveExplainer />
@@ -46,6 +49,12 @@ function App() {
         <NewsletterSection />
       </main>
       <Footer />
+
+      {/* Modal Register Land (muncul di tengah layar) */}
+      <RegisterLandModal
+        isOpen={isRegisterModalOpen}
+        onClose={() => setIsRegisterModalOpen(false)}
+      />
     </div>
   );
 }

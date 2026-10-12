@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X, Leaf, Plus } from 'lucide-react';
 import ConnectButton from './ConnectButton';
 
-export default function Navbar() {
+interface NavbarProps {
+  onOpenRegisterModal: () => void;
+}
+
+export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -63,7 +67,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
+                        <a
               href="#marketplace"
               className="btn-cartoon ml-2 px-5 py-2 text-sm text-white flex items-center gap-1.5"
               style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
@@ -71,6 +75,14 @@ export default function Navbar() {
               <Leaf size={16} />
               Beli Kredit
             </a>
+            <button
+              onClick={onOpenRegisterModal}
+              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
+              style={{ background: '#4a8c5a', border: '2.5px solid #1a3c2e' }}
+            >
+              <Plus size={16} />
+              Daftar Lahan
+            </button>
             <div className="ml-2">
               <ConnectButton />
             </div>
@@ -106,7 +118,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
+                        <a
               href="#marketplace"
               onClick={() => setIsOpen(false)}
               className="btn-cartoon block mt-3 px-5 py-3 text-center text-white"
@@ -114,6 +126,19 @@ export default function Navbar() {
             >
               Beli Kredit Karbon
             </a>
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenRegisterModal();
+              }}
+              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
+              style={{ background: '#4a8c5a', border: '2.5px solid #1a3c2e' }}
+            >
+              + Daftar Lahan
+            </button>
+            <div className="mt-3 flex justify-center">
+              <ConnectButton />
+            </div>
           </div>
         </div>
       )}
