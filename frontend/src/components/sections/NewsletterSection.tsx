@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Mail, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { ExplorerCharacter, HornbillCharacter } from '@/components/illustrations/Characters';
 import { FloatingLeaf, CartoonCloud, CartoonTree, CartoonBush } from '@/components/illustrations/Environment';
-import { supabase } from '@/lib/supabase';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -23,20 +22,9 @@ export default function NewsletterSection() {
     setErrorMessage('');
 
     try {
-      const { error } = await supabase
-        .from('newsletter_subscribers')
-        .insert({ email });
-
-      if (error) {
-        if (error.code === '23505') {
-          setStatus('error');
-          setErrorMessage('Anda sudah berlangganan!');
-        } else {
-          setStatus('error');
-          setErrorMessage('Terjadi kesalahan. Silakan coba lagi.');
-        }
-        return;
-      }
+      // Newsletter feature disabled for hackathon demo.
+      // In production, this would call a backend API.
+      await new Promise((resolve) => setTimeout(resolve, 500));
       setStatus('success');
       setEmail('');
     } catch {
