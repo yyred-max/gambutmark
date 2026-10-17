@@ -34,7 +34,7 @@ export interface NewsItem {
       excerpt: 'Pemadam kebakaran berjuang melawan kebakaran gambut bawah tanah yang membara saat kondisi kekeringan memburuk di lahan gambut Sumatra.',
       category: 'Siaga Api',
       illustration: 'fire',
-      imageUrl: 'https://images.unsplash.com/photo-1602514588573-5be0b6fdfaf6?w=800&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=800&q=80',
     },
     {
       id: 'n3',
@@ -46,7 +46,7 @@ export interface NewsItem {
       excerpt: 'Survei satwa liar menunjukkan peningkatan 15% dalam pemantauan orangutan di habitat rawa gambut yang telah dipulihkan.',
       category: 'Satwa Liar',
       illustration: 'wildlife',
-      imageUrl: 'https://images.unsplash.com/photo-1541444315945-e79b7e0c91d0?w=800&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800&q=80',
     },
     {
       id: 'n4',
@@ -58,7 +58,7 @@ export interface NewsItem {
       excerpt: 'Pemerintah Indonesia menyetujui metodologi yang direvisi untuk mengukur pengurangan emisi dari pembasahan kembali lahan gambut.',
       category: 'Kebijakan',
       illustration: 'policy',
-      imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
     },
     {
       id: 'n5',
@@ -70,7 +70,7 @@ export interface NewsItem {
       excerpt: 'Koperasi desa membangun ribuan sekat kanal untuk memulihkan tinggi muka air dan melindungi lahan gambut mereka.',
       category: 'Komunitas',
       illustration: 'community',
-      imageUrl: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80',
     },
     {
       id: 'n6',
@@ -82,7 +82,7 @@ export interface NewsItem {
       excerpt: 'Pembeli korporasi menunjukkan minat tak preseden terhadap kredit karbon berbasis alam dari restorasi lahan gambut yang terverifikasi.',
       category: 'Pasar',
       illustration: 'market',
-      imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80',
     },
   ];
   
