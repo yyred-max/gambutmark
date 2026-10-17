@@ -4,9 +4,10 @@ import ConnectButton from './ConnectButton';
 
 interface NavbarProps {
   onOpenRegisterModal: () => void;
+  onOpenIssueModal: () => void;
 }
 
-export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
+export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,7 +50,7 @@ export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
             </div>
             <span
               className="font-display font-bold text-lg transition-colors"
-              style={{ color: scrolled ? '#1a3c2e' : '#1a3c2e' }}
+              style={{ color: '#1a3c2e' }}
             >
               GambutMark
             </span>
@@ -67,7 +68,9 @@ export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
                 {link.label}
               </a>
             ))}
-                        <a
+            
+            {/* Tombol Aksi Desktop */}
+            <a
               href="#marketplace"
               className="btn-cartoon ml-2 px-5 py-2 text-sm text-white flex items-center gap-1.5"
               style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
@@ -83,6 +86,16 @@ export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
               <Plus size={16} />
               Daftar Lahan
             </button>
+            {/* Tombol Issue Credit (Baru) */}
+            <button
+              onClick={onOpenIssueModal}
+              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
+              style={{ background: '#f5a623', border: '2.5px solid #1a3c2e' }}
+            >
+              <Leaf size={16} />
+              Terbitkan Kredit
+            </button>
+            
             <div className="ml-2">
               <ConnectButton />
             </div>
@@ -118,7 +131,9 @@ export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
                 {link.label}
               </a>
             ))}
-                        <a
+            
+            {/* Tombol Aksi Mobile */}
+            <a
               href="#marketplace"
               onClick={() => setIsOpen(false)}
               className="btn-cartoon block mt-3 px-5 py-3 text-center text-white"
@@ -136,6 +151,18 @@ export default function Navbar({ onOpenRegisterModal }: NavbarProps) {
             >
               + Daftar Lahan
             </button>
+            {/* Tombol Issue Credit Mobile (Baru) */}
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenIssueModal();
+              }}
+              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
+              style={{ background: '#f5a623', border: '2.5px solid #1a3c2e' }}
+            >
+              Terbitkan Kredit
+            </button>
+            
             <div className="mt-3 flex justify-center">
               <ConnectButton />
             </div>

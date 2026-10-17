@@ -11,9 +11,11 @@ import StatsDashboard from '@/components/sections/StatsDashboard';
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import Footer from '@/components/sections/Footer';
 import RegisterLandModal from '@/components/modals/RegisterLandModal';
+import IssueCreditModal from '@/components/modals/IssueCreditModal';
 
 function App() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isIssueModalOpen, setIsIssueModalOpen] = useState(false);
 
   // Scroll reveal
   useEffect(() => {
@@ -36,7 +38,10 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#f5ead7' }}>
-      <Navbar onOpenRegisterModal={() => setIsRegisterModalOpen(true)} />
+      <Navbar 
+        onOpenRegisterModal={() => setIsRegisterModalOpen(true)} 
+        onOpenIssueModal={() => setIsIssueModalOpen(true)} 
+      />
       <main>
         <Hero />
         <InteractiveExplainer />
@@ -50,10 +55,16 @@ function App() {
       </main>
       <Footer />
 
-      {/* Modal Register Land (muncul di tengah layar) */}
+      {/* Modal Register Land */}
       <RegisterLandModal
         isOpen={isRegisterModalOpen}
         onClose={() => setIsRegisterModalOpen(false)}
+      />
+
+      {/* Modal Issue Credit */}
+      <IssueCreditModal
+        isOpen={isIssueModalOpen}
+        onClose={() => setIsIssueModalOpen(false)}
       />
     </div>
   );
