@@ -58,9 +58,18 @@ export default function NewsSection() {
                 transitionDelay: `${i * 0.05}s`,
               }}
             >
-              {/* Illustrated thumbnail */}
-              <div className="relative h-44 overflow-hidden border-b-2 border-[#1a3c2e]">
-                <NewsIllustration type={item.illustration} className="w-full h-full" />
+                            {/* Thumbnail — foto real kalau ada, fallback ke SVG */}
+                            <div className="relative h-44 overflow-hidden border-b-2 border-[#1a3c2e]">
+                {item.imageUrl ? (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.headline}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <NewsIllustration type={item.illustration} className="w-full h-full" />
+                )}
                 {/* Category badge */}
                 <div
                   className="absolute top-3 left-3 px-3 py-1 rounded-full font-display font-semibold text-xs text-white border-2 border-[#1a3c2e]"
