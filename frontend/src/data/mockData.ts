@@ -22,7 +22,7 @@ export interface NewsItem {
       excerpt: 'Pembubaran Badan Restorasi Gambut dan Mangrove (BRGM) menimbulkan kekhawatiran terhadap keberlanjutan program restorasi gambut yang telah berjalan selama 10 tahun, termasuk infrastruktur pembasahan dan pemberdayaan masyarakat.',
       category: 'Kebijakan',
       illustration: 'policy',
-      imageUrl: 'https://images.unsplash.com/photo-1518495973542-4542c6a5843?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/kebijakan1/800/600',
     },
     {
       id: 'n2',
@@ -34,7 +34,7 @@ export interface NewsItem {
       excerpt: 'Kebakaran hutan dan lahan kembali melanda lima daerah di Riau seiring meningkatnya suhu panas. Empat helikopter water bombing dan tim darat dikerahkan untuk memadamkan titik api di lahan gambut.',
       category: 'Siaga Api',
       illustration: 'fire',
-      imageUrl: 'https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/karhutla2/800/600',
     },
     {
       id: 'n3',
@@ -46,7 +46,7 @@ export interface NewsItem {
       excerpt: 'BKSDA Kalimantan Barat mencatat delapan kelahiran alami orangutan dari induk yang sebelumnya menjalani rehabilitasi. Sejak 2016, 82 orangutan telah dilepasliarkan ke TNBBBR, menunjukkan keberhasilan program konservasi.',
       category: 'Satwa Liar',
       illustration: 'wildlife',
-      imageUrl: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/orangutan3/800/600',
     },
     {
       id: 'n4',
@@ -58,7 +58,7 @@ export interface NewsItem {
       excerpt: 'Wakil Menteri Lingkungan Hidup mendorong suplai kredit karbon dari solusi berbasis alam (NBS), termasuk dari ekosistem gambut. Pasar dinilai lebih mencari NBS karena harga yang lebih baik dan sellable.',
       category: 'Pasar',
       illustration: 'market',
-      imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/pasar4/800/600',
     },
     {
       id: 'n5',
@@ -70,7 +70,7 @@ export interface NewsItem {
       excerpt: 'Setelah bertahun-tahun persiapan, restorasi gambut di Ketapang mulai menunjukkan hasil. Masyarakat lokal memblokir kanal dengan beton dan tanah, memulihkan tinggi muka air, dan menanam spesies asli.',
       category: 'Komunitas',
       illustration: 'community',
-      imageUrl: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/komunitas5/800/600',
     },
     {
       id: 'n6',
@@ -82,7 +82,7 @@ export interface NewsItem {
       excerpt: 'Bursa Karbon Indonesia (IDXCarbon) mencatat transaksi dan minat beli kredit karbon setara 2,75 juta ton CO2 di COP30 Brasil. Proyek restorasi lahan gambut dan mangrove termasuk yang ditawarkan.',
       category: 'Pasar',
       illustration: 'market',
-      imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80',
+      imageUrl: 'https://picsum.photos/seed/pasar6/800/600',
     },
   ];
   
