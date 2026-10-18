@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Leaf, Plus } from 'lucide-react';
+import { Menu, X, Leaf, Plus, Tag } from 'lucide-react';
 import ConnectButton from './ConnectButton';
 
 interface NavbarProps {
   onOpenRegisterModal: () => void;
   onOpenIssueModal: () => void;
+  onOpenListModal: () => void;
+  onOpenBuyModal: () => void;
 }
 
-export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: NavbarProps) {
+export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenListModal, onOpenBuyModal }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -70,14 +72,14 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
             ))}
             
             {/* Tombol Aksi Desktop */}
-            <a
-              href="#marketplace"
+            <button
+              onClick={onOpenBuyModal}
               className="btn-cartoon ml-2 px-5 py-2 text-sm text-white flex items-center gap-1.5"
               style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
             >
               <Leaf size={16} />
               Beli Kredit
-            </a>
+            </button>
             <button
               onClick={onOpenRegisterModal}
               className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
@@ -86,7 +88,6 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
               <Plus size={16} />
               Daftar Lahan
             </button>
-            {/* Tombol Issue Credit (Baru) */}
             <button
               onClick={onOpenIssueModal}
               className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
@@ -94,6 +95,15 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
             >
               <Leaf size={16} />
               Terbitkan Kredit
+            </button>
+            {/* Tombol Jual Kredit (Baru) */}
+            <button
+              onClick={onOpenListModal}
+              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
+              style={{ background: '#4a8aa8', border: '2.5px solid #1a3c2e' }}
+            >
+              <Tag size={16} />
+              Jual Kredit
             </button>
             
             <div className="ml-2">
@@ -133,14 +143,16 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
             ))}
             
             {/* Tombol Aksi Mobile */}
-            <a
-              href="#marketplace"
-              onClick={() => setIsOpen(false)}
-              className="btn-cartoon block mt-3 px-5 py-3 text-center text-white"
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenBuyModal();
+              }}
+              className="btn-cartoon block w-full mt-3 px-5 py-3 text-center text-white"
               style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
             >
               Beli Kredit Karbon
-            </a>
+            </button>
             <button
               onClick={() => {
                 setIsOpen(false);
@@ -151,7 +163,6 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
             >
               + Daftar Lahan
             </button>
-            {/* Tombol Issue Credit Mobile (Baru) */}
             <button
               onClick={() => {
                 setIsOpen(false);
@@ -161,6 +172,17 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal }: Navbar
               style={{ background: '#f5a623', border: '2.5px solid #1a3c2e' }}
             >
               Terbitkan Kredit
+            </button>
+            {/* Tombol Jual Kredit Mobile (Baru) */}
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenListModal();
+              }}
+              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
+              style={{ background: '#4a8aa8', border: '2.5px solid #1a3c2e' }}
+            >
+              Jual Kredit
             </button>
             
             <div className="mt-3 flex justify-center">

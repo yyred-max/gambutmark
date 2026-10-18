@@ -12,10 +12,14 @@ import NewsletterSection from '@/components/sections/NewsletterSection';
 import Footer from '@/components/sections/Footer';
 import RegisterLandModal from '@/components/modals/RegisterLandModal';
 import IssueCreditModal from '@/components/modals/IssueCreditModal';
+import ListCreditModal from '@/components/modals/ListCreditModal';
+import BuyCreditModal from '@/components/modals/BuyCreditModal';
 
 function App() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isIssueModalOpen, setIsIssueModalOpen] = useState(false);
+  const [isListModalOpen, setIsListModalOpen] = useState(false);
+  const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
 
   // Scroll reveal
   useEffect(() => {
@@ -41,6 +45,8 @@ function App() {
       <Navbar 
         onOpenRegisterModal={() => setIsRegisterModalOpen(true)} 
         onOpenIssueModal={() => setIsIssueModalOpen(true)} 
+        onOpenListModal={() => setIsListModalOpen(true)}
+        onOpenBuyModal={() => setIsBuyModalOpen(true)}
       />
       <main>
         <Hero />
@@ -65,6 +71,14 @@ function App() {
       <IssueCreditModal
         isOpen={isIssueModalOpen}
         onClose={() => setIsIssueModalOpen(false)}
+      />
+            <ListCreditModal
+        isOpen={isListModalOpen}
+        onClose={() => setIsListModalOpen(false)}
+      />
+      <BuyCreditModal
+        isOpen={isBuyModalOpen}
+        onClose={() => setIsBuyModalOpen(false)}
       />
     </div>
   );
