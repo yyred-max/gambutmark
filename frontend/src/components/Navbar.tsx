@@ -43,8 +43,8 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <svg viewBox="0 0 40 40" className="w-10 h-10 anim-sway">
+            <div className="relative w-8 h-8 flex items-center justify-center">
+              <svg viewBox="0 0 40 40" className="w-8 h-8 anim-sway">
                 <ellipse cx="20" cy="22" rx="16" ry="14" fill="#2d6149" stroke="#1a3c2e" strokeWidth="2"/>
                 <ellipse cx="14" cy="17" rx="8" ry="7" fill="#4a8c5a" stroke="#1a3c2e" strokeWidth="1.5"/>
                 <ellipse cx="26" cy="18" rx="7" ry="6" fill="#6bb077" stroke="#1a3c2e" strokeWidth="1.5"/>
@@ -52,67 +52,40 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
               </svg>
             </div>
             <span
-              className="font-display font-bold text-lg transition-colors"
+              className="font-display font-bold text-base transition-colors"
               style={{ color: '#1a3c2e' }}
             >
               GambutMark
             </span>
           </a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop nav - DIPERKECIL & MENGGUNAKAN LG: FLEX */}
+          <div className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 rounded-lg font-body font-semibold text-sm transition-all hover:bg-[#2d6149]/10"
+                className="px-2.5 py-1.5 rounded-lg font-body font-semibold text-xs transition-all hover:bg-[#2d6149]/10"
                 style={{ color: '#1a3c2e' }}
               >
                 {link.label}
               </a>
             ))}
             
-            {/* Tombol Aksi Desktop */}
-            <button
-              onClick={onOpenBuyModal}
-              className="btn-cartoon ml-2 px-5 py-2 text-sm text-white flex items-center gap-1.5"
-              style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
-            >
-              <Leaf size={16} />
-              Beli Kredit
+            <button onClick={onOpenBuyModal} className="btn-cartoon ml-2 px-3 py-1.5 text-xs text-white flex items-center gap-1" style={{ background: '#d94c2a', border: '2px solid #1a3c2e' }}>
+              <Leaf size={14} /> Beli
             </button>
-            <button
-              onClick={onOpenRegisterModal}
-              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
-              style={{ background: '#4a8c5a', border: '2.5px solid #1a3c2e' }}
-            >
-              <Plus size={16} />
-              Daftar Lahan
+            <button onClick={onOpenRegisterModal} className="btn-cartoon ml-1.5 px-3 py-1.5 text-xs text-white flex items-center gap-1" style={{ background: '#4a8c5a', border: '2px solid #1a3c2e' }}>
+              <Plus size={14} /> Lahan
             </button>
-            <button
-              onClick={onOpenIssueModal}
-              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
-              style={{ background: '#f5a623', border: '2.5px solid #1a3c2e' }}
-            >
-              <Leaf size={16} />
-              Terbitkan Kredit
+            <button onClick={onOpenIssueModal} className="btn-cartoon ml-1.5 px-3 py-1.5 text-xs text-white flex items-center gap-1" style={{ background: '#f5a623', border: '2px solid #1a3c2e' }}>
+              <Leaf size={14} /> Terbitkan
             </button>
-            <button
-              onClick={onOpenListModal}
-              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
-              style={{ background: '#4a8aa8', border: '2.5px solid #1a3c2e' }}
-            >
-              <Tag size={16} />
-              Jual Kredit
+            <button onClick={onOpenListModal} className="btn-cartoon ml-1.5 px-3 py-1.5 text-xs text-white flex items-center gap-1" style={{ background: '#4a8aa8', border: '2px solid #1a3c2e' }}>
+              <Tag size={14} /> Jual
             </button>
-            {/* Tombol Retire (Baru) */}
-            <button
-              onClick={onOpenRetireModal}
-              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
-              style={{ background: '#5c4632', border: '2.5px solid #1a3c2e' }}
-            >
-              <Flame size={16} />
-              Retire
+            <button onClick={onOpenRetireModal} className="btn-cartoon ml-1.5 px-3 py-1.5 text-xs text-white flex items-center gap-1" style={{ background: '#5c4632', border: '2px solid #1a3c2e' }}>
+              <Flame size={14} /> Retire
             </button>
             
             <div className="ml-2">
@@ -123,7 +96,7 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg"
+            className="lg:hidden p-2 rounded-lg"
             style={{ color: '#1a3c2e' }}
             aria-label="Buka menu"
           >
@@ -135,10 +108,10 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
       {/* Mobile menu */}
       {isOpen && (
         <div
-          className="md:hidden absolute top-16 left-0 right-0 border-t-2 border-[#2d6149]/15 shadow-lg"
+          className="lg:hidden absolute top-16 left-0 right-0 border-t-2 border-[#2d6149]/15 shadow-lg"
           style={{ background: 'rgba(245, 234, 215, 0.98)', backdropFilter: 'blur(10px)' }}
         >
-          <div className="px-4 py-4 space-y-1">
+          <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -151,60 +124,25 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
               </a>
             ))}
             
-            {/* Tombol Aksi Mobile */}
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenBuyModal();
-              }}
-              className="btn-cartoon block w-full mt-3 px-5 py-3 text-center text-white"
-              style={{ background: '#d94c2a', border: '2.5px solid #1a3c2e' }}
-            >
-              Beli Kredit Karbon
-            </button>
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenRegisterModal();
-              }}
-              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
-              style={{ background: '#4a8c5a', border: '2.5px solid #1a3c2e' }}
-            >
-              + Daftar Lahan
-            </button>
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenIssueModal();
-              }}
-              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
-              style={{ background: '#f5a623', border: '2.5px solid #1a3c2e' }}
-            >
-              Terbitkan Kredit
-            </button>
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenListModal();
-              }}
-              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
-              style={{ background: '#4a8aa8', border: '2.5px solid #1a3c2e' }}
-            >
-              Jual Kredit
-            </button>
-            {/* Tombol Retire Mobile (Baru) */}
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                onOpenRetireModal();
-              }}
-              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
-              style={{ background: '#5c4632', border: '2.5px solid #1a3c2e' }}
-            >
-              Retire Kredit
-            </button>
+            <div className="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-[#2d6149]/20">
+              <button onClick={() => { setIsOpen(false); onOpenBuyModal(); }} className="btn-cartoon px-3 py-2 text-xs text-white flex items-center justify-center gap-1" style={{ background: '#d94c2a', border: '2px solid #1a3c2e' }}>
+                <Leaf size={14} /> Beli Kredit
+              </button>
+              <button onClick={() => { setIsOpen(false); onOpenRegisterModal(); }} className="btn-cartoon px-3 py-2 text-xs text-white flex items-center justify-center gap-1" style={{ background: '#4a8c5a', border: '2px solid #1a3c2e' }}>
+                <Plus size={14} /> Daftar Lahan
+              </button>
+              <button onClick={() => { setIsOpen(false); onOpenIssueModal(); }} className="btn-cartoon px-3 py-2 text-xs text-white flex items-center justify-center gap-1" style={{ background: '#f5a623', border: '2px solid #1a3c2e' }}>
+                <Leaf size={14} /> Terbitkan
+              </button>
+              <button onClick={() => { setIsOpen(false); onOpenListModal(); }} className="btn-cartoon px-3 py-2 text-xs text-white flex items-center justify-center gap-1" style={{ background: '#4a8aa8', border: '2px solid #1a3c2e' }}>
+                <Tag size={14} /> Jual Kredit
+              </button>
+              <button onClick={() => { setIsOpen(false); onOpenRetireModal(); }} className="btn-cartoon px-3 py-2 text-xs text-white flex items-center justify-center gap-1 col-span-2" style={{ background: '#5c4632', border: '2px solid #1a3c2e' }}>
+                <Flame size={14} /> Retire Kredit
+              </button>
+            </div>
             
-            <div className="mt-3 flex justify-center">
+            <div className="mt-4 flex justify-center">
               <ConnectButton />
             </div>
           </div>
