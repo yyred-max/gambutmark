@@ -8,9 +8,79 @@
     <meta property="og:image" content="https://bolt.new/static/og_default.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
+
+    <!-- Google Translate Widget Styling -->
+    <style>
+      /* Sembunyikan banner bawaan Google Translate di atas halaman */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0 !important;
+      }
+      
+      /* Styling widget Google Translate (pojok kanan bawah) */
+      #google_translate_element {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: #f5ead7;
+        padding: 8px 12px;
+        border-radius: 12px;
+        border: 2.5px solid #1a3c2e;
+        box-shadow: 4px 4px 0 rgba(26, 60, 46, 0.15);
+        font-family: inherit;
+      }
+      
+      #google_translate_element .goog-te-gadget {
+        font-size: 13px !important;
+        font-family: inherit !important;
+        color: #1a3c2e !important;
+        font-weight: 600;
+      }
+      
+      #google_translate_element .goog-te-gadget-simple {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+      
+      #google_translate_element .goog-te-gadget-icon {
+        display: none !important;
+      }
+      
+      #google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
+        color: #1a3c2e !important;
+      }
+      
+      #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+        color: #1a3c2e !important;
+      }
+      
+      /* Sembunyikan tooltip "Powered by Google Translate" */
+      .goog-te-gadget .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3) {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'id',
+          includedLanguages: 'id,en',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
