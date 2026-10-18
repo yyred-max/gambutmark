@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface Panel {
   id: number;
   title: string;
   content: string;
-  illustration: JSX.Element;
+  illustration: React.ReactNode;
 }
 
 export default function ComicSections() {
@@ -130,7 +130,7 @@ export default function ComicSections() {
   };
 
   return (
-    /* TAMBAHKAN id="comic" DI SINI */
+    /* ✅ id="comic" SUDAH DITAMBAHKAN */
     <section id="comic" className="py-16 px-4 bg-gradient-to-b from-amber-50 to-stone-100">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-800 mb-12">
@@ -207,6 +207,7 @@ export default function ComicSections() {
                         ? 'bg-emerald-700 scale-125'
                         : 'bg-stone-400 hover:bg-stone-500'
                     }`}
+                    /* ✅ TYPO DIPERBAIKI — backtick ditambahkan */
                     aria-label={`Go to panel ${index + 1}`}
                   />
                 ))}
