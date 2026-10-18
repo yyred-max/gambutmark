@@ -3,7 +3,11 @@ import { TopicIcon } from '@/components/illustrations/Scenes';
 import { topicCategories } from '@/data/mockData';
 import { ArrowRight } from 'lucide-react';
 
-export default function TopicCategories() {
+interface TopicCategoriesProps {
+  onSelectTopic: (topicId: string) => void;
+}
+
+export default function TopicCategories({ onSelectTopic }: TopicCategoriesProps) {
   return (
     <section id="topics" className="relative py-20 px-4" style={{ background: '#f5ead7' }}>
       <div className="max-w-6xl mx-auto">
@@ -23,9 +27,10 @@ export default function TopicCategories() {
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {topicCategories.map((topic, i) => (
-            <div
+            <button
               key={topic.id}
-              className="cartoon-card reveal-on-scroll rounded-2xl p-6 cursor-pointer border-2.5 bg-white"
+              onClick={() => onSelectTopic(topic.id)}
+              className="cartoon-card reveal-on-scroll rounded-2xl p-6 cursor-pointer border-2.5 bg-white text-left w-full transition-transform hover:-translate-y-1"
               style={{
                 borderColor: topic.color,
                 boxShadow: '4px 6px 0 rgba(26, 60, 46, 0.12)',
@@ -55,7 +60,7 @@ export default function TopicCategories() {
                 <span>Pelajari lebih lanjut</span>
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
