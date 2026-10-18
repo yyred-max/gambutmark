@@ -14,12 +14,14 @@ import RegisterLandModal from '@/components/modals/RegisterLandModal';
 import IssueCreditModal from '@/components/modals/IssueCreditModal';
 import ListCreditModal from '@/components/modals/ListCreditModal';
 import BuyCreditModal from '@/components/modals/BuyCreditModal';
+import RetireCreditModal from '@/components/modals/RetireCreditModal';
 
 function App() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isIssueModalOpen, setIsIssueModalOpen] = useState(false);
   const [isListModalOpen, setIsListModalOpen] = useState(false);
   const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+  const [isRetireModalOpen, setIsRetireModalOpen] = useState(false);
 
   // Scroll reveal
   useEffect(() => {
@@ -47,6 +49,7 @@ function App() {
         onOpenIssueModal={() => setIsIssueModalOpen(true)} 
         onOpenListModal={() => setIsListModalOpen(true)}
         onOpenBuyModal={() => setIsBuyModalOpen(true)}
+        onOpenRetireModal={() => setIsRetireModalOpen(true)}
       />
       <main>
         <Hero />
@@ -79,6 +82,10 @@ function App() {
       <BuyCreditModal
         isOpen={isBuyModalOpen}
         onClose={() => setIsBuyModalOpen(false)}
+      />
+       <RetireCreditModal
+        isOpen={isRetireModalOpen}
+        onClose={() => setIsRetireModalOpen(false)}
       />
     </div>
   );

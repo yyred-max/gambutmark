@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Leaf, Plus, Tag } from 'lucide-react';
+import { Menu, X, Leaf, Plus, Tag, Flame } from 'lucide-react';
 import ConnectButton from './ConnectButton';
 
 interface NavbarProps {
@@ -7,9 +7,10 @@ interface NavbarProps {
   onOpenIssueModal: () => void;
   onOpenListModal: () => void;
   onOpenBuyModal: () => void;
+  onOpenRetireModal: () => void;
 }
 
-export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenListModal, onOpenBuyModal }: NavbarProps) {
+export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenListModal, onOpenBuyModal, onOpenRetireModal }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -96,7 +97,6 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
               <Leaf size={16} />
               Terbitkan Kredit
             </button>
-            {/* Tombol Jual Kredit (Baru) */}
             <button
               onClick={onOpenListModal}
               className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
@@ -104,6 +104,15 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
             >
               <Tag size={16} />
               Jual Kredit
+            </button>
+            {/* Tombol Retire (Baru) */}
+            <button
+              onClick={onOpenRetireModal}
+              className="btn-cartoon ml-1 px-5 py-2 text-sm text-white flex items-center gap-1.5"
+              style={{ background: '#5c4632', border: '2.5px solid #1a3c2e' }}
+            >
+              <Flame size={16} />
+              Retire
             </button>
             
             <div className="ml-2">
@@ -173,7 +182,6 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
             >
               Terbitkan Kredit
             </button>
-            {/* Tombol Jual Kredit Mobile (Baru) */}
             <button
               onClick={() => {
                 setIsOpen(false);
@@ -183,6 +191,17 @@ export default function Navbar({ onOpenRegisterModal, onOpenIssueModal, onOpenLi
               style={{ background: '#4a8aa8', border: '2.5px solid #1a3c2e' }}
             >
               Jual Kredit
+            </button>
+            {/* Tombol Retire Mobile (Baru) */}
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onOpenRetireModal();
+              }}
+              className="btn-cartoon block w-full mt-2 px-5 py-3 text-center text-white"
+              style={{ background: '#5c4632', border: '2.5px solid #1a3c2e' }}
+            >
+              Retire Kredit
             </button>
             
             <div className="mt-3 flex justify-center">
