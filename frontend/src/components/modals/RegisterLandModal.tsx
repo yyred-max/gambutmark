@@ -81,10 +81,8 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
         documentCID: formData.documentCID || '',
       },
       {
-        // ✅ FIX: Batas gas dinaikkan menjadi 1.000.000 agar tidak "out of gas"
+        // ✅ HANYA set gas limit. Biarkan MetaMask/Rabby mengatur maxFeePerGas.
         gas: BigInt(1000000),
-        maxFeePerGas: BigInt(30000000000),       // 30 Gwei
-        maxPriorityFeePerGas: BigInt(30000000000), // 30 Gwei
       }
     );
   };

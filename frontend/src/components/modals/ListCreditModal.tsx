@@ -51,9 +51,13 @@ export default function ListCreditModal({ isOpen, onClose }: ListCreditModalProp
       return;
     }
 
+    // 💡 Kirim transaksi dengan parameter gas yang aman
     listCredit(
       Number(formData.creditId),
-      formData.price
+      formData.price,
+      {
+        gas: BigInt(1000000), // Batas gas tinggi untuk transfer NFT
+      }
     );
   };
 

@@ -56,12 +56,18 @@ export default function IssueCreditModal({ isOpen, onClose }: IssueCreditModalPr
       return;
     }
 
-    issueNewCredit({
-      landId: Number(formData.landId),
-      vintage: Number(formData.vintage),
-      amount: Number(formData.amount),
-      metadataCID: '', // Opsional, kosongkan dulu
-    });
+    // 💡 Kirim transaksi dengan parameter gas yang aman
+    issueNewCredit(
+      {
+        landId: Number(formData.landId),
+        vintage: Number(formData.vintage),
+        amount: Number(formData.amount),
+        metadataCID: '',
+      },
+      {
+        gas: BigInt(1000000), // Naikkan limit gas agar tidak out of gas
+      }
+    );
   };
 
   const isLoading = isIssuePending || isIssueConfirming || isSwitching;
