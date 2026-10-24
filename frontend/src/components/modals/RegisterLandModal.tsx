@@ -71,14 +71,22 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
       return;
     }
 
-    registerNewLand({
-      name: formData.name,
-      province: formData.province,
-      regency: formData.regency,
-      areaHectares: Number(formData.areaHectares),
-      description: formData.description,
-      documentCID: formData.documentCID || '',
-    });
+    // 💡 DISINI KITA UBAH: Tambahkan objek gas 30 Gwei
+    registerNewLand(
+      {
+        name: formData.name,
+        province: formData.province,
+        regency: formData.regency,
+        areaHectares: Number(formData.areaHectares),
+        description: formData.description,
+        documentCID: formData.documentCID || '',
+      },
+      {
+        gas: BigInt(300000),
+        maxFeePerGas: BigInt(30000000000),       // 30 Gwei
+        maxPriorityFeePerGas: BigInt(30000000000), // 30 Gwei
+      }
+    );
   };
 
   const handleSwitchNetwork = () => {

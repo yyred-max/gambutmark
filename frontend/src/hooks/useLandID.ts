@@ -33,7 +33,7 @@ export function useLandID() {
     areaHectares: number;
     description: string;
     documentCID: string;
-  }) => {
+  }, txOptions?: any) => { // <-- Tambahan txOptions
     writeRegister({
       address: CONTRACTS.LandID.address,
       abi: CONTRACTS.LandID.abi,
@@ -46,6 +46,7 @@ export function useLandID() {
         params.description,
         params.documentCID,
       ],
+      ...txOptions, // <-- Masukkan opsi gas (maxFeePerGas, dll) di sini
     });
   };
 
