@@ -71,7 +71,6 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
       return;
     }
 
-    // 💡 DISINI KITA UBAH: Tambahkan objek gas 30 Gwei
     registerNewLand(
       {
         name: formData.name,
@@ -82,7 +81,8 @@ export default function RegisterLandModal({ isOpen, onClose }: RegisterLandModal
         documentCID: formData.documentCID || '',
       },
       {
-        gas: BigInt(300000),
+        // ✅ FIX: Batas gas dinaikkan menjadi 1.000.000 agar tidak "out of gas"
+        gas: BigInt(1000000),
         maxFeePerGas: BigInt(30000000000),       // 30 Gwei
         maxPriorityFeePerGas: BigInt(30000000000), // 30 Gwei
       }
